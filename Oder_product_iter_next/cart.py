@@ -6,6 +6,8 @@ class Cart:
     def __init__(self):
         self.__items = []
         self.__quantities = []
+        self.__index = 0
+
 
     def add_product(self, item: Product, quantity=1):
         if not isinstance(item, Product):
@@ -17,6 +19,21 @@ class Cart:
 
         self.__items.append(item)
         self.__quantities.append(quantity)
+
+
+    def __iter__(self):
+        self.__index = 0
+        return self
+
+    def __next__(self):
+        if self.__index < len(self.__items):
+            item = self.__items[self.__index]
+            quantity = self.__quantities[self.__index]
+            self.__index+= 1
+            return item, quantity
+        else:
+            raise StopIteration
+
 
     def __iadd__(self, other):
         if not isinstance(other, Cart):

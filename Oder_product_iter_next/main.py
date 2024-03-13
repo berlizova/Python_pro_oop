@@ -23,25 +23,17 @@ if __name__ == '__main__':
         cart_2.add_product(p3, 3)
         cart_2.add_product(p4, 2)
 
-        discount = GoldDiscount()
-        order_1 = Order("Jon", "Doe", cart_1, discount)
-        discount = SilverDiscount()
-        order_2 = Order("Jane", "Doe", cart_2, discount)
+        # Iterating through products in cart_1
+        print("Products in cart_1:")
+        for item, quantity in cart_1:
+            print(f"{item.name}: {quantity}")
 
-        # Combining carts using the += operator
-        combined_cart = Cart()
-        combined_cart += cart_1
-        combined_cart += cart_2
+        # Iterating through products in cart_2
+        print("\nProducts in cart_2:")
+        for item, quantity in cart_2:
+            print(f"{item.name}: {quantity}")
 
-        #print("Combined Cart:")
-        #print(combined_cart)
-
-        discount = GoldDiscount()
-        combined_order = Order("Combined", "Order", combined_cart, discount)
-
-        print(f'Jon', order_1)
-        print(f'Jane', order_2)
-        print(f'Combined', combined_order)
+        # Your remaining code...
     except PriceError as pe:
         print(f"PriceError: {pe}")
     except TypeError as te:

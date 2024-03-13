@@ -32,4 +32,3 @@ class Cart:
     def __str__(self):
         items = "\n".join([f"{item.name}: {quantity}" for item, quantity in zip(self.__items, self.__quantities)])
         return f"Cart with: \n{items}\nTotal: {self.total()}"
-
