@@ -10,11 +10,11 @@ def date_range(start_date, end_date):
 
 def convert_to_datetime(date_str):
     try:
-        # Attempt to parse the date using multiple formats
+        # Check  formats
         return datetime.strptime(date_str, "%d-%m-%Y")
     except ValueError:
         try:
-            # Attempt to parse the date with different separator formats
+            # Clearing  formats
             for separator in ['-', '/', ' ', '.']:
                 date_str = date_str.replace(separator, '-')
             return datetime.strptime(date_str, "%d-%m-%Y")
