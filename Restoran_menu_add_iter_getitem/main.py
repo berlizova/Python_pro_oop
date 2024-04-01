@@ -13,6 +13,7 @@ def select_category():
     print("5. Pasta")
     print("6. Seafood")
     print("0. Finish ordering")
+
     category_choice = int(input("Enter the number of the category you want to order from: "))
     return category_choice
 

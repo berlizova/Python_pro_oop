@@ -10,7 +10,7 @@ class Order:
         self.items.append(dish)
 
     def calculate_total(self):
-        total = sum([dish.price for dish in self.items])
+        total = sum([dish.price() for dish in self.items])  # Call the price() method
         return total
 
     def __iter__(self):
